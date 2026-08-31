@@ -22,7 +22,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 60 },
     "hiroshimaScore": 95,
-    "imageUrl": "/images/spots/shukkeien.jpg",
+    "imageUrl": "/images/spots/shukkeien.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=縮景園+広島",
     "transitTypeHint": "train"
   },
@@ -49,7 +49,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 98,
-    "imageUrl": "/images/spots/okonomimura.jpg",
+    "imageUrl": "/images/spots/okonomimura.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=お好み村+広島",
     "transitTypeHint": "train"
   },
@@ -76,7 +76,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 85, "rain": 50 },
     "hiroshimaScore": 92,
-    "imageUrl": "/images/spots/hiroshima_castle.jpg",
+    "imageUrl": "/images/spots/hiroshima_castle.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=広島城",
     "transitTypeHint": "train"
   },
@@ -103,7 +103,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 85, "rain": 70 },
     "hiroshimaScore": 90,
-    "imageUrl": "/images/spots/orizuru_tower.jpg",
+    "imageUrl": "/images/spots/orizuru_tower.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=おりづるタワー",
     "transitTypeHint": "train"
   },
@@ -130,7 +130,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 60 },
     "hiroshimaScore": 99,
-    "imageUrl": "/images/spots/peace_memorial_park_atomic_bomb_dome.jpg",
+    "imageUrl": "/images/spots/peace_memorial_park_atomic_bomb_dome.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=平和記念公園+原爆ドーム",
     "transitTypeHint": "walk"
   },
@@ -157,7 +157,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 50 },
     "hiroshimaScore": 84,
-    "imageUrl": "/images/spots/hiroshima_gate_park.jpg",
+    "imageUrl": "/images/spots/hiroshima_gate_park.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ひろしまゲートパーク",
     "transitTypeHint": "train"
   },
@@ -184,7 +184,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 90, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 83,
-    "imageUrl": "/images/spots/hiroshima_prefectural_art_museum.jpg",
+    "imageUrl": "/images/spots/hiroshima_prefectural_art_museum.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=広島県立美術館",
     "transitTypeHint": "train"
   },
@@ -211,7 +211,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 90, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 82,
-    "imageUrl": "/images/spots/hiroshima_moca.jpg",
+    "imageUrl": "/images/spots/hiroshima_moca.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=広島市現代美術館",
     "transitTypeHint": "bus"
   },
@@ -238,7 +238,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 80, "rain": 40 },
     "hiroshimaScore": 80,
-    "imageUrl": "/images/spots/hijiyama_park_observatory.jpg",
+    "imageUrl": "/images/spots/hijiyama_park_observatory.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=比治山公園+展望台",
     "transitTypeHint": "walk"
   },
@@ -265,7 +265,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 90, "cloudy": 90, "rain": 75 },
     "hiroshimaScore": 86,
-    "imageUrl": "/images/spots/yokogawa_retro_shopping_street.jpg",
+    "imageUrl": "/images/spots/yokogawa_retro_shopping_street.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=横川商店街+広島",
     "transitTypeHint": "train"
   },
@@ -292,7 +292,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 85,
-    "imageUrl": "/images/spots/etto_miyajimaguchi.jpg",
+    "imageUrl": "/images/spots/etto_miyajimaguchi.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=etto+宮島口",
     "transitTypeHint": "train"
   },
@@ -319,7 +319,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 60 },
     "hiroshimaScore": 100,
-    "imageUrl": "/images/spots/itsukushima_shrine_torii.jpg",
+    "imageUrl": "/images/spots/itsukushima_shrine_torii.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=厳島神社",
     "transitTypeHint": "train"
   },
@@ -346,7 +346,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 95, "cloudy": 95, "rain": 70 },
     "hiroshimaScore": 96,
-    "imageUrl": "/images/spots/miyajima_omotesando_shopping_street.jpg",
+    "imageUrl": "/images/spots/miyajima_omotesando_shopping_street.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=宮島表参道商店街",
     "transitTypeHint": "train"
   },
@@ -373,7 +373,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 90, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 88,
-    "imageUrl": "/images/spots/miyajima_aquarium.jpg",
+    "imageUrl": "/images/spots/miyajima_aquarium.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=宮島水族館",
     "transitTypeHint": "train"
   },
@@ -400,7 +400,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 85, "rain": 40 },
     "hiroshimaScore": 79,
-    "imageUrl": "/images/spots/ujina_wharf_park.jpg",
+    "imageUrl": "/images/spots/ujina_wharf_park.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=宇品波止場公園",
     "transitTypeHint": "train"
   },
@@ -427,7 +427,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 90, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 94,
-    "imageUrl": "/images/spots/yamato_museum.jpg",
+    "imageUrl": "/images/spots/yamato_museum.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=大和ミュージアム",
     "transitTypeHint": "train"
   },
@@ -454,7 +454,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 50 },
     "hiroshimaScore": 91,
-    "imageUrl": "/images/spots/alley_karasukojima.jpg",
+    "imageUrl": "/images/spots/alley_karasukojima.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=アレイからすこじま",
     "transitTypeHint": "bus"
   },
@@ -481,7 +481,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 95, "cloudy": 95, "rain": 70 },
     "hiroshimaScore": 93,
-    "imageUrl": "/images/spots/saijo_sake_brewery_street.jpg",
+    "imageUrl": "/images/spots/saijo_sake_brewery_street.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=西条酒蔵通り",
     "transitTypeHint": "train"
   },
@@ -508,7 +508,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 95, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 90,
-    "imageUrl": "/images/spots/kamotsuru_sake_brewery.jpg",
+    "imageUrl": "/images/spots/kamotsuru_sake_brewery.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=賀茂鶴酒造+見学蔵",
     "transitTypeHint": "train"
   },
@@ -535,7 +535,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 80, "rain": 40 },
     "hiroshimaScore": 97,
-    "imageUrl": "/images/spots/senkoji_ropeway_observatory.jpg",
+    "imageUrl": "/images/spots/senkoji_ropeway_observatory.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=千光寺山ロープウェイ",
     "transitTypeHint": "train"
   },
@@ -562,7 +562,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 95, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 89,
-    "imageUrl": "/images/spots/onomichi_u2.jpg",
+    "imageUrl": "/images/spots/onomichi_u2.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ONOMICHI+U2",
     "transitTypeHint": "train"
   },
@@ -589,7 +589,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 60 },
     "hiroshimaScore": 92,
-    "imageUrl": "/images/spots/takehara_historic_district.jpg",
+    "imageUrl": "/images/spots/takehara_historic_district.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=竹原+町並み保存地区",
     "transitTypeHint": "train"
   },
@@ -616,7 +616,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 96,
-    "imageUrl": "/images/spots/hiroshima_station_ekie.jpg",
+    "imageUrl": "/images/spots/hiroshima_station_ekie.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=ekie+広島駅",
     "transitTypeHint": "train"
   },
@@ -643,7 +643,7 @@
     "indoorLevel": "indoor",
     "weatherSuitability": { "sunny": 90, "cloudy": 100, "rain": 100 },
     "hiroshimaScore": 77,
-    "imageUrl": "/images/spots/raisanyo_historic_museum.jpg",
+    "imageUrl": "/images/spots/raisanyo_historic_museum.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=頼山陽史跡資料館",
     "transitTypeHint": "walk"
   },
@@ -670,7 +670,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 75, "rain": 30 },
     "hiroshimaScore": 85,
-    "imageUrl": "/images/spots/ogonzan_observatory.jpg",
+    "imageUrl": "/images/spots/ogonzan_observatory.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=黄金山展望台+広島",
     "transitTypeHint": "car"
   },
@@ -697,7 +697,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 90, "rain": 60 },
     "hiroshimaScore": 78,
-    "imageUrl": "/images/spots/koi_place.jpg",
+    "imageUrl": "/images/spots/koi_place.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=KOI+PLACE+西広島",
     "transitTypeHint": "train"
   },
@@ -724,7 +724,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 95, "cloudy": 90, "rain": 70 },
     "hiroshimaScore": 81,
-    "imageUrl": "/images/spots/hiroshima_botanical_garden.jpg",
+    "imageUrl": "/images/spots/hiroshima_botanical_garden.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=広島市植物公園",
     "transitTypeHint": "bus"
   },
@@ -751,7 +751,7 @@
     "indoorLevel": "outdoor",
     "weatherSuitability": { "sunny": 100, "cloudy": 75, "rain": 30 },
     "hiroshimaScore": 88,
-    "imageUrl": "/images/spots/fudekageyama_observatory.jpg",
+    "imageUrl": "/images/spots/fudekageyama_observatory.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=筆影山展望台",
     "transitTypeHint": "car"
   },
@@ -778,7 +778,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 95, "cloudy": 95, "rain": 70 },
     "hiroshimaScore": 89,
-    "imageUrl": "/images/spots/buttsuji_temple.jpg",
+    "imageUrl": "/images/spots/buttsuji_temple.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=仏通寺+三原",
     "transitTypeHint": "car"
   },
@@ -805,7 +805,7 @@
     "indoorLevel": "semi",
     "weatherSuitability": { "sunny": 100, "cloudy": 95, "rain": 80 },
     "hiroshimaScore": 87,
-    "imageUrl": "/images/spots/koi_place.jpg",
+    "imageUrl": "/images/spots/koi_place.webp",
     "googleMapsUrl": "https://www.google.com/maps/search/?api=1&query=湯来交流体験センター",
     "transitTypeHint": "car"
   }

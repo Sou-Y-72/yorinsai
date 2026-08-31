@@ -233,7 +233,7 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
         <div
           className="absolute inset-0 bg-cover bg-center opacity-90 scale-105"
           style={{
-            backgroundImage: 'url("/images/spots/itsukushima_torii_setouchi.jpg")',
+            backgroundImage: 'url("/images/spots/itsukushima_torii_setouchi.webp")',
           }}
         />
         {/* ガラスオーバーレイグラデーション */}
