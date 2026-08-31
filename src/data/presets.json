@@ -1,0 +1,62 @@
+[
+  {
+    "id": "preset-1",
+    "label": "定番デモ: 宮島口→広島駅",
+    "badge": "人気",
+    "description": "宮島観光の帰り、新幹線までの3時間半で立ち寄れるスポット（静かな場所・グルメ・歴史）",
+    "data": {
+      "origin": "宮島口",
+      "destination": "広島駅",
+      "currentTime": "15:00",
+      "targetArrivalTime": "18:30",
+      "interests": ["グルメ", "歴史"],
+      "freeText": "静かな場所がいい",
+      "weather": "sunny"
+    }
+  },
+  {
+    "id": "preset-2",
+    "label": "雨の日デモ: 平和公園→広島駅",
+    "badge": "雨天対応",
+    "description": "雨でも濡れずに楽しめる屋内スポットやカフェ（移動少なめ）",
+    "data": {
+      "origin": "平和記念公園",
+      "destination": "広島駅",
+      "currentTime": "11:30",
+      "targetArrivalTime": "14:30",
+      "interests": ["カフェ", "文化"],
+      "freeText": "雨に濡れたくない、落ち着いた屋内",
+      "weather": "rain"
+    }
+  },
+  {
+    "id": "preset-3",
+    "label": "夕方サクッと: 横川駅→八丁堀",
+    "badge": "短時間",
+    "description": "ホテルチェックイン前に広島名物をサクッと満喫",
+    "data": {
+      "origin": "横川駅",
+      "destination": "八丁堀",
+      "currentTime": "16:30",
+      "targetArrivalTime": "18:30",
+      "interests": ["グルメ", "買い物"],
+      "freeText": "広島らしいローカルな雰囲気を味わいたい",
+      "weather": "sunny"
+    }
+  },
+  {
+    "id": "preset-4",
+    "label": "絶景・写真旅: 広島駅→広島駅",
+    "badge": "景色",
+    "description": "少し足を伸ばして瀬戸内や街並みの絶景写真を撮りたい",
+    "data": {
+      "origin": "広島駅",
+      "destination": "広島駅",
+      "currentTime": "13:00",
+      "targetArrivalTime": "17:00",
+      "interests": ["景色", "写真", "自然"],
+      "freeText": "見晴らしの良いパノラマ展望",
+      "weather": "cloudy"
+    }
+  }
+]

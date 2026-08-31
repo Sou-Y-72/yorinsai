@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 寄りんさい (YORIMICHI HIROSHIMA)
 
-## Getting Started
+> **寄り道ひとつ、思い出ひとつ。**  
+> 次の予定までに寄れる、あなた向けの広島スポットをAIが賢く提案します。
 
-First, run the development server:
+---
+
+## 🌟 サービス概要
+広島を旅行中の個人旅行者が、旅行中に発生した1〜3時間程度の余白時間（「新幹線まで2時間余った」「ホテルのチェックインまで時間がある」など）で、旅程を崩さずに立ち寄れる魅力的な観光スポットを提案するWebアプリケーションです。
+
+HIROSHIMA AI SUMMER HACKATHON 向けに開発され、第三者がどこからでもアクセス・体験可能なクラウドデプロイ仕様となっています。
+
+---
+
+## 🚀 主な機能・特徴
+
+1. **Liquid Glass UI（モバイルファースト）**
+   - 瀬戸内ブルー＆シアンのグラデーション、半透明ガラスモーフィズム、滑らかなマイクロアニメーション。
+2. **正確なプログラム足切り＆最適化**
+   - 到着希望時刻に対する安全バッファ（15分）判定、営業時間・定休日判定、寄り道コスト・観光効率・時間適合度を自動計算。
+3. **Gemini 2.5 Flash による嗜好理解と推薦理由生成**
+   - ユーザーの興味タグ・自由なこだわり（「静かな場所がいい」「あまり歩きたくない」など）を理解し、背中を押す魅力的な推薦文を一括生成。
+4. **「情報信頼度」バッジ & 内訳解説**
+   - 施設データ充足度（35%）、移動経路の信頼度（35%）、AI嗜好理解度（20%）、時間余裕度（10%）を算出して可視化。
+5. **🎯 デモ用クイックシナリオボタン**
+   - 審査時やプレゼン時にワンタップで代表シナリオ（宮島口発、雨の日の平和公園発など）をセット可能。
+6. **100% 安定稼働のフォールバック設計**
+   - Gemini APIキー未設定やネットワーク障害時でも、内蔵ルールベースエンジンが0.1秒でフォールバックして推薦を継続。
+
+---
+
+## 🛠️ 技術スタック
+- **Frontend**: Next.js 16 (App Router / TypeScript)
+- **Styling**: Tailwind CSS v4 + Liquid Glass Custom Styles + CSS Modules
+- **UI & Icons**: Lucide React, Framer Motion
+- **AI Model**: Google Gemini 2.5 Flash (`@google/genai`)
+- **Routing & Travel Matrix**: 共通インターフェース `getTravelTime` + `travel-times.json`（広島県内30スポット対応）
+- **Hosting**: Vercel
+
+---
+
+## 💻 ローカル起動方法
 
 ```bash
+# 依存関係のインストール
+npm install
+
+# 開発サーバーの起動 (ポート3000)
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+
+# プロダクションビルド
+npm run build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+ブラウザで `http://localhost:3000` を開いてください。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## ☁️ Vercelへのデプロイ手順（第三者公開用）
 
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+1. 本リポジトリを GitHub にプッシュします。
+2. [Vercel](https://vercel.com/) にログインし、「Add New Project」から本リポジトリを選択。
+3. （任意）Environment Variables に以下を設定:
+   - `GEMINI_API_KEY`: お手持ちの Google Gemini API キー
+   - ※未設定の場合でも、自動的に高精度な内蔵ルールベースエンジンで完全に動作します。
+4. 「Deploy」をクリックするだけで、第三者がアクセス可能な公開URLが発行されます。
