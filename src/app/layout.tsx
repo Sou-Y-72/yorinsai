@@ -31,7 +31,7 @@ export default function RootLayout({
         />
       </head>
       <body className="min-h-screen bg-gradient-to-b from-sky-100 via-blue-50 to-indigo-100/40 text-slate-800 antialiased flex justify-center selection:bg-blue-500 selection:text-white">
-        <main className="w-full max-w-md min-h-screen relative shadow-2xl bg-white/30 backdrop-blur-[2px]">
+        <main className="w-full max-w-md min-h-screen relative shadow-2xl bg-white/40">
           {children}
         </main>
       </body>

@@ -166,6 +166,7 @@ export default function Home() {
             transition={{ duration: 0.2 }}
           >
             <InputView
+              initialValues={searchParams}
               onSearch={handleSearch}
               onSelectFavoriteSpot={handleSelectFavoriteSpot}
               isLoading={isLoading}

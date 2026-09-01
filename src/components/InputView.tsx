@@ -77,17 +77,23 @@ interface InputViewProps {
   onSearch: (condition: ConditionInput) => void;
   onSelectFavoriteSpot?: (spot: Spot) => void;
   isLoading: boolean;
+  initialValues?: ConditionInput;
 }
 
-export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavoriteSpot, isLoading }) => {
-  const [origin, setOrigin] = useState('宮島口');
-  const [destination, setDestination] = useState('広島駅');
-  const [currentTime, setCurrentTime] = useState('15:00');
-  const [targetArrivalTime, setTargetArrivalTime] = useState('18:30');
-  const [interests, setInterests] = useState<string[]>(['グルメ', '歴史']);
-  const [transitModes, setTransitModes] = useState<TransitMode[]>(['transit', 'walk']);
-  const [weather, setWeather] = useState<WeatherType>('sunny');
-  const [freeText, setFreeText] = useState('');
+export const InputView: React.FC<InputViewProps> = ({
+  onSearch,
+  onSelectFavoriteSpot,
+  isLoading,
+  initialValues,
+}) => {
+  const [origin, setOrigin] = useState(initialValues?.origin || '宮島口');
+  const [destination, setDestination] = useState(initialValues?.destination || '広島駅');
+  const [currentTime, setCurrentTime] = useState(initialValues?.currentTime || '15:00');
+  const [targetArrivalTime, setTargetArrivalTime] = useState(initialValues?.targetArrivalTime || '18:30');
+  const [interests, setInterests] = useState<string[]>(initialValues?.interests || ['グルメ', '歴史']);
+  const [transitModes, setTransitModes] = useState<TransitMode[]>(initialValues?.transitModes || ['transit', 'walk']);
+  const [weather, setWeather] = useState<WeatherType>(initialValues?.weather || 'sunny');
+  const [freeText, setFreeText] = useState(initialValues?.freeText || '');
 
   // GPS取得状態
   const [isLocating, setIsLocating] = useState(false);
@@ -112,8 +118,11 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
     };
   }, []);
 
-  // 1. デバイスの現在時刻 & 到着希望時刻（現在時刻 + 2.5時間）の初期化
+  // 1. デバイスの現在時刻 & 到着希望時刻（初回のみ、initialValues がない場合のみ設定）
   useEffect(() => {
+    if (initialValues?.currentTime && initialValues?.targetArrivalTime) {
+      return;
+    }
     const now = new Date();
     const currentHours = String(now.getHours()).padStart(2, '0');
     const currentMins = String(now.getMinutes()).padStart(2, '0');
@@ -126,10 +135,13 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
     const roundedMins = Math.round((normTargetMinutes % 60) / 15) * 15;
     const targetMins = String(roundedMins >= 60 ? 45 : roundedMins).padStart(2, '0');
     setTargetArrivalTime(`${targetHours}:${targetMins}`);
-  }, []);
+  }, [initialValues]);
 
-  // 2. ブラウザの現在地（GPS）を取得し、最寄りのポイントを自動設定
+  // 2. ブラウザの現在地（GPS）を取得し、最寄りのポイントを自動設定（初回のみ）
   useEffect(() => {
+    if (initialValues?.origin && initialValues.origin !== '宮島口') {
+      return;
+    }
     if (typeof window !== 'undefined' && 'geolocation' in navigator) {
       setIsLocating(true);
       navigator.geolocation.getCurrentPosition(
@@ -161,7 +173,7 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
         { timeout: 8000, enableHighAccuracy: false }
       );
     }
-  }, []);
+  }, [initialValues]);
 
   const toggleInterest = (id: string) => {
     setInterests((prev) =>
