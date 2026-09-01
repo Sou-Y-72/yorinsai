@@ -14,6 +14,7 @@ export default function Home() {
   const [screen, setScreen] = useState<ScreenState>('input');
   const [previousScreen, setPreviousScreen] = useState<'input' | 'result'>('input');
   const [isLoading, setIsLoading] = useState(false);
+  const [lastSearchedParams, setLastSearchedParams] = useState<ConditionInput | null>(null);
   const [searchParams, setSearchParams] = useState<ConditionInput>({
     origin: '宮島口',
     destination: '広島駅',
@@ -35,6 +36,7 @@ export default function Home() {
   const handleSearch = async (condition: ConditionInput) => {
     setIsLoading(true);
     setSearchParams(condition);
+    setLastSearchedParams(condition);
 
     try {
       const res = await fetch('/api/recommend', {
@@ -166,7 +168,7 @@ export default function Home() {
             transition={{ duration: 0.2 }}
           >
             <InputView
-              initialValues={searchParams}
+              initialValues={lastSearchedParams || undefined}
               onSearch={handleSearch}
               onSelectFavoriteSpot={handleSelectFavoriteSpot}
               isLoading={isLoading}

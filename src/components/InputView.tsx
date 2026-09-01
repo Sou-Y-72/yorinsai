@@ -80,16 +80,39 @@ interface InputViewProps {
   initialValues?: ConditionInput;
 }
 
+const getInitialTimes = (initialValues?: ConditionInput) => {
+  if (initialValues?.currentTime && initialValues?.targetArrivalTime) {
+    return {
+      current: initialValues.currentTime,
+      target: initialValues.targetArrivalTime,
+    };
+  }
+  const now = new Date();
+  const currentHours = String(now.getHours()).padStart(2, '0');
+  const currentMins = String(now.getMinutes()).padStart(2, '0');
+  const current = `${currentHours}:${currentMins}`;
+
+  const targetTotalMinutes = now.getHours() * 60 + now.getMinutes() + 150;
+  const normTargetMinutes = targetTotalMinutes % 1440;
+  const targetHours = String(Math.floor(normTargetMinutes / 60)).padStart(2, '0');
+  const roundedMins = Math.round((normTargetMinutes % 60) / 15) * 15;
+  const targetMins = String(roundedMins >= 60 ? 45 : roundedMins).padStart(2, '0');
+  const target = `${targetHours}:${targetMins}`;
+
+  return { current, target };
+};
+
 export const InputView: React.FC<InputViewProps> = ({
   onSearch,
   onSelectFavoriteSpot,
   isLoading,
   initialValues,
 }) => {
+  const initialTimes = getInitialTimes(initialValues);
   const [origin, setOrigin] = useState(initialValues?.origin || '宮島口');
   const [destination, setDestination] = useState(initialValues?.destination || '広島駅');
-  const [currentTime, setCurrentTime] = useState(initialValues?.currentTime || '15:00');
-  const [targetArrivalTime, setTargetArrivalTime] = useState(initialValues?.targetArrivalTime || '18:30');
+  const [currentTime, setCurrentTime] = useState(initialTimes.current);
+  const [targetArrivalTime, setTargetArrivalTime] = useState(initialTimes.target);
   const [interests, setInterests] = useState<string[]>(initialValues?.interests || ['グルメ', '歴史']);
   const [transitModes, setTransitModes] = useState<TransitMode[]>(initialValues?.transitModes || ['transit', 'walk']);
   const [weather, setWeather] = useState<WeatherType>(initialValues?.weather || 'sunny');
@@ -123,18 +146,9 @@ export const InputView: React.FC<InputViewProps> = ({
     if (initialValues?.currentTime && initialValues?.targetArrivalTime) {
       return;
     }
-    const now = new Date();
-    const currentHours = String(now.getHours()).padStart(2, '0');
-    const currentMins = String(now.getMinutes()).padStart(2, '0');
-    setCurrentTime(`${currentHours}:${currentMins}`);
-
-    // 約2時間半後を目標到着時刻のデフォルトにする（15分単位に丸め）
-    const targetTotalMinutes = now.getHours() * 60 + now.getMinutes() + 150;
-    const normTargetMinutes = targetTotalMinutes % 1440;
-    const targetHours = String(Math.floor(normTargetMinutes / 60)).padStart(2, '0');
-    const roundedMins = Math.round((normTargetMinutes % 60) / 15) * 15;
-    const targetMins = String(roundedMins >= 60 ? 45 : roundedMins).padStart(2, '0');
-    setTargetArrivalTime(`${targetHours}:${targetMins}`);
+    const { current, target } = getInitialTimes();
+    setCurrentTime(current);
+    setTargetArrivalTime(target);
   }, [initialValues]);
 
   // 2. ブラウザの現在地（GPS）を取得し、最寄りのポイントを自動設定（初回のみ）
