@@ -78,14 +78,18 @@ export const ResultView: React.FC<ResultViewProps> = ({
     );
   };
 
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <div className="relative min-h-screen pb-12 flex flex-col justify-between text-slate-800 bg-gradient-to-b from-sky-50 via-slate-50 to-indigo-50/40">
-      {/* 上部ヘッダー */}
-      <header className="px-5 pt-7 pb-3 flex items-center justify-between z-20 border-b border-white/60 bg-white/40 backdrop-blur-md sticky top-0">
+      {/* 上部ヘッダー（スクロール追従） */}
+      <header className="px-5 pt-6 pb-3 flex items-center justify-between z-30 border-b border-white/60 bg-white/80 backdrop-blur-md sticky top-0 shadow-xs">
         <button
           type="button"
           onClick={onBack}
-          className="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-700 shadow-sm border border-white active:scale-95 transition cursor-pointer"
+          className="w-9 h-9 rounded-full bg-white/90 hover:bg-white flex items-center justify-center text-slate-700 shadow-xs border border-white active:scale-95 transition cursor-pointer"
         >
           <ChevronLeft className="w-5 h-5" />
         </button>

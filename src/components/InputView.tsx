@@ -225,6 +225,11 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
     });
   };
 
+  // 画面マウント時に最上部にスクロール
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
+
   return (
     <div className="relative min-h-screen pb-10 flex flex-col justify-between text-slate-800">
       {/* 瀬戸内・宮島背景ビジュアル & グラデーション */}
@@ -244,36 +249,36 @@ export const InputView: React.FC<InputViewProps> = ({ onSearch, onSelectFavorite
         <div className="absolute top-80 right-0 w-60 h-60 bg-blue-300/30 rounded-full blur-3xl" />
       </div>
 
+      {/* スクロール追従上部ヘッダー（左上: デモシナリオ / 右上: お気に入り） */}
+      <header className="sticky top-0 z-30 px-5 py-3 flex justify-between items-center bg-white/45 backdrop-blur-md border-b border-white/50 shadow-xs">
+        {/* 左上: デモシナリオ */}
+        <button
+          type="button"
+          onClick={() => setShowPresets(true)}
+          className="flex items-center gap-1 text-xs font-bold text-blue-700 bg-white/80 hover:bg-white px-3 py-1.5 rounded-full shadow-xs backdrop-blur-md border border-white/80 transition active:scale-95 cursor-pointer"
+        >
+          <SlidersHorizontal className="w-3.5 h-3.5" />
+          <span>デモシナリオ</span>
+        </button>
+
+        {/* 右上: お気に入り */}
+        <button
+          type="button"
+          onClick={() => setShowFavorites(true)}
+          className="flex items-center gap-1.5 text-xs font-bold text-rose-600 bg-white/85 hover:bg-white px-3 py-1.5 rounded-full shadow-xs backdrop-blur-md border border-white/80 transition active:scale-95 cursor-pointer"
+        >
+          <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
+          <span>お気に入り</span>
+          {favoriteCount > 0 && (
+            <span className="bg-rose-500 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">
+              {favoriteCount}
+            </span>
+          )}
+        </button>
+      </header>
+
       {/* コンテンツエリア */}
-      <div className="px-5 pt-8 z-10">
-        {/* ヘッダー（左上: デモシナリオ / 右上: お気に入り） */}
-        <div className="flex justify-between items-center mb-2">
-          {/* 左上: デモシナリオ */}
-          <button
-            type="button"
-            onClick={() => setShowPresets(true)}
-            className="flex items-center gap-1 text-xs font-bold text-blue-700 bg-white/70 hover:bg-white/90 px-3 py-1 rounded-full shadow-sm backdrop-blur-md border border-white/80 transition active:scale-95 cursor-pointer"
-          >
-            <SlidersHorizontal className="w-3.5 h-3.5" />
-            <span>デモシナリオ</span>
-          </button>
-
-          {/* 右上: お気に入り */}
-          <button
-            type="button"
-            onClick={() => setShowFavorites(true)}
-            className="flex items-center gap-1.5 text-xs font-bold text-rose-600 bg-white/80 hover:bg-white/95 px-3 py-1 rounded-full shadow-sm backdrop-blur-md border border-white/80 transition active:scale-95 cursor-pointer"
-          >
-            <Heart className="w-3.5 h-3.5 fill-rose-500 text-rose-500" />
-            <span>お気に入り</span>
-            {favoriteCount > 0 && (
-              <span className="bg-rose-500 text-white text-[10px] px-1.5 py-0.2 rounded-full font-bold">
-                {favoriteCount}
-              </span>
-            )}
-          </button>
-        </div>
-
+      <div className="px-5 pt-3 z-10">
         {/* ヒーロータイトル & キャッチコピー */}
         <motion.div
           initial={{ opacity: 0, y: 10 }}

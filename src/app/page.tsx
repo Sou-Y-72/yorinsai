@@ -27,6 +27,11 @@ export default function Home() {
   const [recommendations, setRecommendations] = useState<RecommendedSpot[]>([]);
   const [selectedSpot, setSelectedSpot] = useState<RecommendedSpot | null>(null);
 
+  // 画面遷移時に一番上のヘッダーが見えるよう最上部にスクロール
+  React.useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, [screen]);
+
   const handleSearch = async (condition: ConditionInput) => {
     setIsLoading(true);
     setSearchParams(condition);

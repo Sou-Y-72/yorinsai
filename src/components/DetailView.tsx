@@ -12,16 +12,10 @@ import {
   ExternalLink,
   ShieldCheck,
   ChevronDown,
-  CheckCircle2,
   Sparkles,
-  Car,
   Train,
-  Footprints,
-  CloudRain,
-  AlertTriangle,
   CalendarCheck,
   Navigation,
-  Info,
 } from 'lucide-react';
 import { RecommendedSpot, ConditionInput } from '@/types';
 import { isFavorite as checkIsFavorite, toggleFavorite } from '@/lib/favorites';
@@ -37,10 +31,15 @@ export const DetailView: React.FC<DetailViewProps> = ({
   searchParams,
   onBack,
 }) => {
-  const { spot, scores, confidence } = spotItem;
+  const { spot } = spotItem;
   const [isFav, setIsFav] = useState(false);
   const [toastMessage, setToastMessage] = useState<string | null>(null);
   const [showDataInfo, setShowDataInfo] = useState(false);
+
+  // 画面マウント時に最上部にスクロール
+  useEffect(() => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+  }, []);
 
   useEffect(() => {
     setIsFav(checkIsFavorite(spot.spotId));
@@ -75,7 +74,7 @@ export const DetailView: React.FC<DetailViewProps> = ({
   };
 
   return (
-    <div className="relative min-h-screen pb-28 flex flex-col justify-between text-slate-800 bg-gradient-to-b from-sky-50 via-slate-50 to-indigo-50/50">
+    <div className="relative min-h-screen pb-36 flex flex-col justify-between text-slate-800 bg-gradient-to-b from-sky-50 via-slate-50 to-indigo-50/50">
       {/* トースト通知 */}
       <AnimatePresence>
         {toastMessage && (
@@ -83,7 +82,7 @@ export const DetailView: React.FC<DetailViewProps> = ({
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             exit={{ opacity: 0, y: -20 }}
-            className="fixed top-6 left-4 right-4 z-50 flex justify-center pointer-events-none"
+            className="fixed top-16 left-4 right-4 z-50 flex justify-center pointer-events-none"
           >
             <div className="bg-slate-900/90 text-white text-xs font-bold px-4 py-2.5 rounded-full shadow-xl backdrop-blur-md border border-white/20">
               {toastMessage}
@@ -92,37 +91,41 @@ export const DetailView: React.FC<DetailViewProps> = ({
         )}
       </AnimatePresence>
 
-      {/* 1. 上部ヒーロー画像 & ヘッダー */}
-      <div className="relative w-full h-72 overflow-hidden bg-slate-200">
+      {/* スクロール追従上部ヘッダー */}
+      <header className="sticky top-0 z-40 px-4 py-2.5 flex items-center justify-between bg-white/80 backdrop-blur-md border-b border-white/60 shadow-xs">
+        <button
+          type="button"
+          onClick={onBack}
+          className="w-9 h-9 rounded-full bg-white hover:bg-slate-50 flex items-center justify-center text-slate-800 shadow-xs border border-slate-200/80 transition active:scale-95 cursor-pointer shrink-0"
+        >
+          <ChevronLeft className="w-5 h-5" />
+        </button>
+
+        <span className="text-xs font-bold text-slate-800 truncate px-2 font-['BIZ_UDPMincho',_'BIZ_UDMincho',_'Hiragino_Mincho_ProN',_'Yu_Mincho',_serif]">
+          {spot.name}
+        </span>
+
+        <button
+          type="button"
+          onClick={handleToggleFavorite}
+          className="w-9 h-9 rounded-full bg-white hover:bg-slate-50 flex items-center justify-center text-slate-800 shadow-xs border border-slate-200/80 transition active:scale-95 cursor-pointer shrink-0"
+        >
+          <Heart
+            className={`w-4 h-4 transition ${
+              isFav ? 'text-rose-500 fill-rose-500 scale-110' : 'text-slate-700'
+            }`}
+          />
+        </button>
+      </header>
+
+      {/* 1. ヒーロー画像エリア */}
+      <div className="relative w-full h-64 overflow-hidden bg-slate-200">
         <img
           src={spot.imageUrl}
           alt={spot.name}
           className="w-full h-full object-cover"
         />
-        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/25 to-transparent" />
-
-        {/* ヘッダー操作 (戻る・お気に入り) */}
-        <div className="absolute top-6 left-0 right-0 px-5 flex items-center justify-between z-20">
-          <button
-            type="button"
-            onClick={onBack}
-            className="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 shadow-md backdrop-blur-md transition active:scale-95 cursor-pointer"
-          >
-            <ChevronLeft className="w-5 h-5" />
-          </button>
-
-          <button
-            type="button"
-            onClick={handleToggleFavorite}
-            className="w-9 h-9 rounded-full bg-white/80 hover:bg-white flex items-center justify-center text-slate-800 shadow-md backdrop-blur-md transition active:scale-95 cursor-pointer"
-          >
-            <Heart
-              className={`w-4 h-4 transition ${
-                isFav ? 'text-rose-500 fill-rose-500 scale-110' : 'text-slate-700'
-              }`}
-            />
-          </button>
-        </div>
+        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/85 via-slate-900/20 to-transparent" />
 
         {/* 画像下部: スポット名 & エリア */}
         <div className="absolute bottom-4 left-5 right-5 text-white">
@@ -290,39 +293,42 @@ export const DetailView: React.FC<DetailViewProps> = ({
           </span>
         </div>
 
-        {/* 7. 施設情報 (自然な営業時間・費用・天候) */}
-        <div className="grid grid-cols-2 gap-2.5">
-          {/* 営業時間 */}
-          <div className="liquid-glass-card rounded-2xl p-3 border border-white/80 col-span-2 sm:col-span-1">
-            <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-              <CalendarCheck className="w-3.5 h-3.5 text-blue-500" />
+        {/* 7. 施設情報 (自然な営業時間・費用目安・天候相性) */}
+        <div className="space-y-2.5">
+          {/* 営業時間（フル幅1行でスッキリ表示） */}
+          <div className="liquid-glass-card rounded-2xl p-3.5 border border-white/80 flex items-center justify-between">
+            <div className="flex items-center gap-2 text-slate-500 text-xs font-medium">
+              <CalendarCheck className="w-4 h-4 text-blue-500 shrink-0" />
               <span>営業時間</span>
             </div>
-            <p className="text-xs font-bold text-slate-800">
+            <p className="text-xs font-bold text-slate-800 text-right">
               {spotItem.openingStatusText}
             </p>
           </div>
 
-          {/* 費用目安 */}
-          <div className="liquid-glass-card rounded-2xl p-3 border border-white/80">
-            <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-              <Coins className="w-3.5 h-3.5 text-amber-500" />
-              <span>費用目安</span>
+          {/* 費用目安 ＆ 天候との相性（2等分均等配置で中途半端な長さを解消） */}
+          <div className="grid grid-cols-2 gap-2.5">
+            {/* 費用目安 */}
+            <div className="liquid-glass-card rounded-2xl p-3 border border-white/80 flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
+                <Coins className="w-3.5 h-3.5 text-amber-500" />
+                <span>費用目安</span>
+              </div>
+              <p className="text-xs font-bold text-slate-800">
+                {spot.priceText || '無料'}
+              </p>
             </div>
-            <p className="text-xs font-bold text-slate-800">
-              {spot.priceText || '無料'}
-            </p>
-          </div>
 
-          {/* 天候との相性 */}
-          <div className="liquid-glass-card rounded-2xl p-3 border border-white/80 col-span-2 sm:col-span-1">
-            <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
-              <Sun className="w-3.5 h-3.5 text-amber-500" />
-              <span>天候との相性</span>
+            {/* 天候との相性 */}
+            <div className="liquid-glass-card rounded-2xl p-3 border border-white/80 flex flex-col justify-between">
+              <div className="flex items-center gap-1.5 text-slate-400 text-[11px] mb-1">
+                <Sun className="w-3.5 h-3.5 text-amber-500" />
+                <span>天候との相性</span>
+              </div>
+              <p className="text-xs font-bold text-slate-800">
+                {getWeatherRecommendationText()}
+              </p>
             </div>
-            <p className="text-xs font-bold text-slate-800">
-              {getWeatherRecommendationText()}
-            </p>
           </div>
         </div>
 
@@ -410,8 +416,8 @@ export const DetailView: React.FC<DetailViewProps> = ({
         </div>
       </div>
 
-      {/* 10. 固定下部アクションバー (Google Mapsで開く) */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 z-40 bg-white/80 backdrop-blur-lg border-t border-white/60">
+      {/* 10. 固定下部アクションバー (Google Mapsで開く：常時表示) */}
+      <div className="fixed bottom-0 left-0 right-0 p-4 z-40 bg-white/85 backdrop-blur-lg border-t border-white/60 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
         <div className="max-w-md mx-auto">
           <button
             type="button"
