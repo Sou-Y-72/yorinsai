@@ -417,12 +417,12 @@ export const DetailView: React.FC<DetailViewProps> = ({
       </div>
 
       {/* 10. 固定下部アクションバー (Google Mapsで開く：常時表示) */}
-      <div className="fixed bottom-0 left-0 right-0 p-4 z-40 bg-white/85 backdrop-blur-lg border-t border-white/60 shadow-[0_-4px_20px_rgba(0,0,0,0.08)]">
-        <div className="max-w-md mx-auto">
+      <div className="fixed bottom-0 left-0 right-0 z-50 flex justify-center pointer-events-none pb-4 pt-3 px-4 bg-gradient-to-t from-slate-50 via-slate-50/95 to-transparent">
+        <div className="max-w-md w-full pointer-events-auto">
           <button
             type="button"
             onClick={handleOpenGoogleMaps}
-            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3.5 px-6 rounded-full flex items-center justify-center gap-2 text-sm shadow-lg active:scale-[0.98] transition cursor-pointer"
+            className="w-full bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white font-bold py-3.5 px-6 rounded-full flex items-center justify-center gap-2 text-sm shadow-[0_6px_25px_rgba(37,99,235,0.4)] active:scale-[0.98] transition cursor-pointer"
           >
             <span>Google Mapsで開く</span>
             <ExternalLink className="w-4 h-4" />

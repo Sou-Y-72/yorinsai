@@ -127,7 +127,7 @@ export default function Home() {
   };
 
   return (
-    <div className="w-full min-h-screen relative overflow-hidden">
+    <div className="w-full min-h-screen relative">
       {/* ローディングオーバーレイ */}
       <AnimatePresence>
         {isLoading && (
@@ -155,15 +155,15 @@ export default function Home() {
         )}
       </AnimatePresence>
 
-      {/* 画面切り替え */}
+      {/* 画面切り替え（transformを使わずopacityのみで切り替え、fixed/stickyのviewport基準を死守） */}
       <AnimatePresence mode="wait">
         {screen === 'input' && (
           <motion.div
             key="input"
-            initial={{ opacity: 0, x: -10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
             <InputView
               onSearch={handleSearch}
@@ -176,10 +176,10 @@ export default function Home() {
         {screen === 'result' && (
           <motion.div
             key="result"
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: -10 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
             <ResultView
               recommendations={recommendations}
@@ -193,10 +193,10 @@ export default function Home() {
         {screen === 'detail' && selectedSpot && (
           <motion.div
             key="detail"
-            initial={{ opacity: 0, x: 10 }}
-            animate={{ opacity: 1, x: 0 }}
-            exit={{ opacity: 0, x: 10 }}
-            transition={{ duration: 0.25 }}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.2 }}
           >
             <DetailView
               spotItem={selectedSpot}
